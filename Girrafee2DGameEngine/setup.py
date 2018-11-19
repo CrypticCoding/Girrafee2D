@@ -19,7 +19,7 @@ setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
-        "License :: OSI Approved :: GNU General Public License v2 or Later", (GPLv2+)"
+        "License :: OSI Approved :: GNU General Public License v2 or Later", (GPLv2+)",
         long_description = long_description,
         long_description_content_type = "text/markdown", 
     ],
