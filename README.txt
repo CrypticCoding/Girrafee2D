@@ -25,4 +25,8 @@ Inherits From "App" Class
 
 
 Inherits From "Event" Class
+	Public Parameters:
+	------------------
+	 	1) close - check for if the window is closed
+	
 	
