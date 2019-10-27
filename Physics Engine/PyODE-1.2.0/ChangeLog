@@ -1,0 +1,86 @@
+2006-11-28  Matthias Baas <baas@ira.uka.de>
+
+	* setup.py: Modified the setup script to upgrade to ODE 0.7.
+	
+2006-11-10  Matthias Baas <baas@ira.uka.de>
+
+	* joints.pyx, geoms.pyx: Applied some more patches by 
+	  Ethan Glasser-Camp (switched from the ccylinder functions to
+	  the capsule functions and renamed the GeomCCylinder to GeomCapsule.
+	  For backwards compatibility, the name GeomCCylinder is still
+	  available and is an alias for GeomCapsule. Added support for
+	  GeomCylinder (the uncapped one)).
+
+2006-11-09  Matthias Baas <baas@ira.uka.de>
+
+	* joints.pyx: Applied a patch from the mailing list that adds support
+	  for the LMotor (thanks to Ethan Glasser-Camp).
+	* joints.pyx: Applied a patch from the mailing list that adds support
+	  for the Plane2DJoint (thanks to Leonard Ritter).
+
+	These changes requires a more recent version of ODE than 0.5 
+	(I've switched to v0.7 now).
+
+2006-08-15  Matthias Baas <baas@ira.uka.de>
+
+	* joints.pyx: The JointGroup.__dealloc__() method now notifies
+	  the contained joints about the destruction of the ODE joints
+	  (i.e. _destroyed() is called).
+
+2006-05-30  Matthias Baas <baas@ira.uka.de>
+
+	* mass.pyx: Applied Chris Bainbridge's patch that adds the 
+	  Mass.setBoxTotal() method, and while I was at it I added
+	  the other set*Total() methods, too.
+
+2006-04-13  Matthias Baas <baas@ira.uka.de>
+
+	* space.pyx, joints.pyx: Fixed some doc strings that generated
+	  epydoc warnings.
+	* ode.pyx: Added the collide2() function (and fixed some more doc
+	  strings).
+	
+2006-01-17  Matthias Baas <baas@ira.uka.de>
+
+	* geomobject.pyx: Added the getQuaternion()/setQuaternion() methods
+
+2005-12-16  Timothy Stranex <timothy.stranex@gmail.com>
+	* setup.py: Modified setup to look for ODE installations in common
+	  locations.
+	* examples/tutorial3.py: Updated with Pierre Gay's changes so that it
+	  does not depend on cgkit or pygame.
+	* tests/test_xode.py: Fixed some instances of testing floats for
+	  equality.
+
+2005-09-20  Matthias Baas <baas@ira.uka.de>
+
+	* ode.pyx: Added the ParamX3 parameter names and the ParamGroup definition
+
+2005-06-24  Matthias Baas <baas@ira.uka.de>
+
+	* Modified the base joint class so that its possible to store 
+	  arbitrary attributes (as is the case with regular Python classes).
+	  This was suggested in "bug" 1121141.
+
+2005-06-06  Matthias Baas <baas@ira.uka.de>
+
+	* Creating a Body now requires a World object. Empty Bodies are not
+	  allowed anymore. The ode.environment object now simply holds None
+	  instead of an empty Body. It's now also possible to pass None to
+	  the attach() method.
+	* Added an iterator to iterate over the geoms inside a Space.
+
+2005-05-05  Matthias Baas <baas@ira.uka.de>
+
+	* src\joints.pyx (Joints): Added methods to set joint forces/torques directly (section 7.6
+	  in the ODE manual).
+
+2005-03-03  Matthias Baas <baas@ira.uka.de>
+
+	* src\geomobject.pyx (setCollideBits, setCategoryBits): Bits can now also be passed as int.
+	  Updated doc about collide and category bits (which are actually long instead of int).
+
+2004-11-30  Timothy Stranex <timothy@stranex.com>
+
+	* Modified setup to work with both Trimesh-enabled and Trimesh-disabled
+	  builds of ODE without needing Pyrex to be installed.
